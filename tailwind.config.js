@@ -76,10 +76,20 @@ export default {
           "0%": { transform: "translateY(8px)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
+        "sheet-up": {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
       animation: {
         stamp: "stampDown 0.5s ease-out",
         "toast-in": "toast-in 0.2s ease-out",
+        "sheet-up": "sheet-up 0.28s cubic-bezier(0.32,0.72,0,1)",
+        "fade-in": "fade-in 0.2s ease-out",
       },
     },
   },
