@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useEffect, useMemo, useState, useCallback } from "react"
+import React, { useEffect, useMemo, useState, useCallback } from "react"
 import type { Application, WalletDoc } from "@/types"
 import { initialApplications, initialWallet } from "@/data/mock"
+import { AppDataContext, type AppDataContextValue, type Toast } from "@/context/app-data-context"
 
 function useLocalStorage<T>(key: string, initial: T) {
   const [value, setValue] = useState<T>(() => {
@@ -20,23 +21,6 @@ function useLocalStorage<T>(key: string, initial: T) {
   }, [key, value])
   return [value, setValue] as const
 }
-
-interface Toast {
-  id: number
-  message: string
-}
-
-interface AppDataContextValue {
-  wallet: WalletDoc[]
-  applications: Application[]
-  addWalletDoc: (doc: Omit<WalletDoc, "id" | "status" | "updated"> & { id?: string }) => void
-  markWalletVerified: (category: string, name: string) => void
-  addApplication: (app: Application) => void
-  toasts: Toast[]
-  showToast: (message: string) => void
-}
-
-const AppDataContext = createContext<AppDataContextValue | null>(null)
 
 const TODAY = "Jul 18, 2026"
 
@@ -83,8 +67,3 @@ export function AppDataProvider({ children }: { children: React.ReactNode }) {
   return <AppDataContext.Provider value={value}>{children}</AppDataContext.Provider>
 }
 
-export function useAppData() {
-  const ctx = useContext(AppDataContext)
-  if (!ctx) throw new Error("useAppData must be used within AppDataProvider")
-  return ctx
-}

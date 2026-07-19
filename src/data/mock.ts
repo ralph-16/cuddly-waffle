@@ -72,7 +72,8 @@ export const requestTypes: RequestTypeConfig[] = [
     description: "New application or renewal",
     icon: "briefcase",
     trackPrefix: "BP",
-    flowType: "standard",
+    // Dedicated new application, renewal, and status experience.
+    flowType: "cart",
     identityRequirements: ["Valid government ID"],
     attachmentRequirements: [
       { id: "dti", label: "DTI or SEC registration", helpText: "Renews rarely, but re-upload if it has changed", required: true },

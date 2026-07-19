@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { StatCard } from "@/components/shared/StatCard"
 import { ServiceCard } from "@/components/shared/ServiceCard"
 import { QuickAction } from "@/components/shared/QuickAction"
-import { useAppData } from "@/context/AppDataContext"
+import { useAppData } from "@/context/useAppData"
 import { requestTypes } from "@/data/mock"
 import { ICONS } from "@/lib/icon-map"
 

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { ReceiptText, FileCheck2, Award, ShieldCheck, Eye, Printer } from "lucide-react"
-import { useAppData } from "@/context/AppDataContext"
+import { useAppData } from "@/context/useAppData"
 import type { IssuedDocument } from "@/types"
 
 const TYPE_ICON: Record<IssuedDocument["type"], typeof ReceiptText> = {

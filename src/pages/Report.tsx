@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
 import { reportCategories } from "@/data/mock"
 import { ICONS } from "@/lib/icon-map"
-import { useAppData } from "@/context/AppDataContext"
+import { useAppData } from "@/context/useAppData"
 
 export default function Report() {
   const navigate = useNavigate()

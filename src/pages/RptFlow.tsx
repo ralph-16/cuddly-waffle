@@ -9,7 +9,7 @@ import { Progress } from "@/components/ui/progress"
 import { ClaimStub } from "@/components/shared/ClaimStub"
 import { PAYMENT_METHODS, PaymentMethodPicker } from "@/components/shared/PaymentMethodPicker"
 import { ReviewRow } from "@/components/shared/ReviewRow"
-import { useAppData } from "@/context/AppDataContext"
+import { useAppData } from "@/context/useAppData"
 import { lookupProperty, type PropertyRecord } from "@/data/mock"
 import type { Application } from "@/types"
 

@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/Header"
 import { Timeline } from "@/components/shared/Timeline"
 import { ApprovalStamp } from "@/components/shared/ApprovalStamp"
 import { Button } from "@/components/ui/button"
-import { useAppData } from "@/context/AppDataContext"
+import { useAppData } from "@/context/useAppData"
 
 export default function ApplicationDetail() {
   const { id } = useParams()

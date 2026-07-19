@@ -5,7 +5,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { ClaimStub } from "@/components/shared/ClaimStub"
 import { IssuedDocCard } from "@/components/shared/IssuedDocCard"
 import { cn } from "@/lib/utils"
-import { useAppData } from "@/context/AppDataContext"
+import { useAppData } from "@/context/useAppData"
 import { issuedDocuments } from "@/data/mock"
 
 const FILTERS = [

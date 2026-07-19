@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { AppDataProvider } from "@/context/AppDataContext"
+import { AppDataProvider } from "@/context/AppDataProvider"
 import { AppShell } from "@/components/layout/AppShell"
 import { TabLayout } from "@/components/layout/TabLayout"
 
@@ -14,6 +14,7 @@ import RequestFlow from "@/pages/RequestFlow"
 import RequestConfirm from "@/pages/RequestConfirm"
 import RptFlow from "@/pages/RptFlow"
 import CivilRegistryFlow from "@/pages/CivilRegistryFlow"
+import BusinessPermitFlow from "@/pages/BusinessPermitFlow"
 import Report from "@/pages/Report"
 import Hotlines from "@/pages/Hotlines"
 import Assistant from "@/pages/Assistant"
@@ -39,6 +40,7 @@ export default function App() {
             <Route path="/request/:slug/confirm" element={<RequestConfirm />} />
             <Route path="/rpt" element={<RptFlow />} />
             <Route path="/lcr" element={<CivilRegistryFlow />} />
+            <Route path="/business-permit" element={<BusinessPermitFlow />} />
             <Route path="/report" element={<Report />} />
             <Route path="/hotlines" element={<Hotlines />} />
             <Route path="/assistant" element={<Assistant />} />

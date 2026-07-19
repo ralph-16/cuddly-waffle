@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { FileText, Bell, Globe, HelpCircle, LogOut, ChevronRight, IdCard } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { useAppData } from "@/context/AppDataContext"
+import { useAppData } from "@/context/useAppData"
 
 function Row({ icon: Icon, label, sub, onClick }: { icon: any; label: string; sub?: string; onClick?: () => void }) {
   return (

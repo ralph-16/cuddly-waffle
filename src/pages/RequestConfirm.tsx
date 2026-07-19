@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ClaimStub } from "@/components/shared/ClaimStub"
-import { useAppData } from "@/context/AppDataContext"
+import { useAppData } from "@/context/useAppData"
 
 export default function RequestConfirm() {
   const navigate = useNavigate()
