@@ -3,9 +3,19 @@ import { useNavigate } from "react-router-dom"
 import {
   ChevronRight,
   Check,
+<<<<<<< HEAD
   Upload,
   RotateCw,
   ReceiptText,
+=======
+  ShieldCheck,
+  Upload,
+  RotateCw,
+  ReceiptText,
+  Smartphone,
+  CreditCard,
+  Landmark,
+>>>>>>> 7d23a659b9e937f219061e9012e1170b806c82d0
 } from "lucide-react"
 import { Header } from "@/components/layout/Header"
 import { Progress } from "@/components/ui/progress"
@@ -17,11 +27,18 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Timeline } from "@/components/shared/Timeline"
 import { ClaimStub } from "@/components/shared/ClaimStub"
 import { WalletBanner } from "@/components/shared/WalletBanner"
+<<<<<<< HEAD
 import { PAYMENT_METHODS, PaymentMethodPicker } from "@/components/shared/PaymentMethodPicker"
 import { ReviewRow } from "@/components/shared/ReviewRow"
 import { useAppData } from "@/context/AppDataContext"
 import { civilRegistryCertTypes, walletProfile, type CivilRegistryCertType } from "@/data/mock"
 import { ICONS } from "@/lib/icon-map"
+=======
+import { useAppData } from "@/context/AppDataContext"
+import { civilRegistryCertTypes, walletProfile, type CivilRegistryCertType } from "@/data/mock"
+import { ICONS } from "@/lib/icon-map"
+import { cn } from "@/lib/utils"
+>>>>>>> 7d23a659b9e937f219061e9012e1170b806c82d0
 import type { Application } from "@/types"
 
 type CertId = CivilRegistryCertType["id"]
@@ -56,6 +73,15 @@ const DEATH_RELATIONSHIP_OPTIONS = [
   "Other",
 ] as const
 
+<<<<<<< HEAD
+=======
+const PAYMENT_METHODS = [
+  { id: "gcash", label: "GCash", icon: Smartphone },
+  { id: "card", label: "Credit / Debit Card", icon: CreditCard },
+  { id: "bank", label: "Online Banking", icon: Landmark },
+] as const
+
+>>>>>>> 7d23a659b9e937f219061e9012e1170b806c82d0
 const peso = (n: number) => `PHP ${n.toLocaleString("en-PH")}.00`
 
 function getApplicantName(certType: CertId | null, values: Record<string, string>) {
@@ -189,6 +215,79 @@ function UploadField({
   )
 }
 
+<<<<<<< HEAD
+=======
+function WalletAutofillCard() {
+  return (
+    <div className="mb-4 rounded-2xl border border-border bg-card p-3.5">
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-start gap-3">
+          <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent">
+            <ShieldCheck className="h-4 w-4 text-primary" strokeWidth={1.8} />
+          </div>
+          <div>
+            <p className="text-[13.5px] font-semibold">{walletProfile.fullName}</p>
+            <p className="mt-0.5 text-[11.5px] text-muted-foreground">{walletProfile.address}</p>
+            <p className="mt-0.5 text-[11.5px] text-muted-foreground">{walletProfile.contactNumber}</p>
+          </div>
+        </div>
+        <span className="flex shrink-0 items-center gap-1 text-[10px] font-bold uppercase text-sage-foreground">
+          <Check className="h-3 w-3" /> Ready
+        </span>
+      </div>
+    </div>
+  )
+}
+
+function ReviewRow({ label, value, last }: { label: string; value: string; last?: boolean }) {
+  return (
+    <div className={cn("flex items-center justify-between py-2.5 text-[13px]", !last && "border-b border-border")}>
+      <span className="text-muted-foreground">{label}</span>
+      <span className="max-w-[60%] text-right font-semibold">{value}</span>
+    </div>
+  )
+}
+
+function PaymentMethodPicker({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  return (
+    <div className="space-y-2.5">
+      {PAYMENT_METHODS.map((m) => {
+        const Icon = m.icon
+        const active = value === m.id
+        return (
+          <button
+            key={m.id}
+            onClick={() => onChange(m.id)}
+            className={cn(
+              "flex w-full items-center gap-3 rounded-2xl border p-3.5 text-left transition-colors",
+              active ? "border-primary bg-accent" : "border-border bg-card"
+            )}
+          >
+            <div
+              className={cn(
+                "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl",
+                active ? "bg-primary/15" : "bg-secondary"
+              )}
+            >
+              <Icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.7} />
+            </div>
+            <span className="flex-1 text-[13.5px] font-semibold">{m.label}</span>
+            <div
+              className={cn(
+                "flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2",
+                active ? "border-primary" : "border-border"
+              )}
+            >
+              {active && <div className="h-2.5 w-2.5 rounded-full bg-primary" />}
+            </div>
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
+>>>>>>> 7d23a659b9e937f219061e9012e1170b806c82d0
 export default function CivilRegistryFlow() {
   const navigate = useNavigate()
   const { addApplication, showToast } = useAppData()
@@ -218,11 +317,15 @@ export default function CivilRegistryFlow() {
 
   const selectCertType = (id: CertId) => {
     setCertType(id)
+<<<<<<< HEAD
     setValues({
       copies: "1",
       requestorName: walletProfile.fullName,
       requestorAddress: walletProfile.address,
     })
+=======
+    setValues({ copies: "1" })
+>>>>>>> 7d23a659b9e937f219061e9012e1170b806c82d0
     setErrors({})
     setOwn(id !== "death")
     setFiles({})
@@ -249,6 +352,7 @@ export default function CivilRegistryFlow() {
     if (certType === "birth") {
       req.push(
         "firstName", "lastName", "sex", "birthDate", "province", "cityMunicipality",
+<<<<<<< HEAD
         "fatherName", "motherMaidenName", "purpose", "copies", "requestorName", "requestorAddress"
       )
       if (!own) req.push("relationship")
@@ -258,6 +362,17 @@ export default function CivilRegistryFlow() {
         "province", "cityMunicipality", "purpose", "copies", "requestorName", "requestorAddress"
       )
       if (!own) req.push("relationship")
+=======
+        "fatherName", "motherMaidenName", "purpose", "copies"
+      )
+      if (!own) req.push("relationship", "requestorName", "requestorAddress")
+    } else if (certType === "marriage") {
+      req.push(
+        "hFirstName", "hLastName", "wFirstName", "wLastName", "marriageDate",
+        "province", "cityMunicipality", "purpose", "copies"
+      )
+      if (!own) req.push("relationship", "requestorName", "requestorAddress")
+>>>>>>> 7d23a659b9e937f219061e9012e1170b806c82d0
     } else if (certType === "death") {
       req.push(
         "deceasedFullName", "deceasedSex", "dateOfDeath", "province", "cityMunicipality",
@@ -455,6 +570,7 @@ export default function CivilRegistryFlow() {
                   </label>
                 </div>
 
+<<<<<<< HEAD
                 <div className="mb-2.5 flex items-center justify-between">
                   <SectionLabel>Requestor</SectionLabel>
                   <button type="button" onClick={fillRequestorFromWallet} className="mb-2.5 text-[11.5px] font-semibold text-primary">
@@ -465,6 +581,14 @@ export default function CivilRegistryFlow() {
                 <TextField label="Requestor address" value={values.requestorAddress || ""} onChange={(v) => setField("requestorAddress", v)} error={errors.requestorAddress} />
                 {!own && (
                   <>
+=======
+                {own ? (
+                  <WalletAutofillCard />
+                ) : (
+                  <>
+                    <TextField label="Requestor name" value={values.requestorName || ""} onChange={(v) => setField("requestorName", v)} error={errors.requestorName} />
+                    <TextField label="Requestor address" value={values.requestorAddress || ""} onChange={(v) => setField("requestorAddress", v)} error={errors.requestorAddress} />
+>>>>>>> 7d23a659b9e937f219061e9012e1170b806c82d0
                     <UploadField label="Authorization letter" done={files.authLetter} uploading={uploading === "authLetter"} onUpload={() => handleUpload("authLetter", "Authorization-letter")} />
                     <UploadField label="Valid ID" done={files.validId} uploading={uploading === "validId"} onUpload={() => handleUpload("validId", "Valid-ID")} />
                   </>
@@ -524,6 +648,7 @@ export default function CivilRegistryFlow() {
                   </label>
                 </div>
 
+<<<<<<< HEAD
                 <div className="mb-2.5 flex items-center justify-between">
                   <SectionLabel>Requestor</SectionLabel>
                   <button type="button" onClick={fillRequestorFromWallet} className="mb-2.5 text-[11.5px] font-semibold text-primary">
@@ -534,6 +659,14 @@ export default function CivilRegistryFlow() {
                 <TextField label="Requestor address" value={values.requestorAddress || ""} onChange={(v) => setField("requestorAddress", v)} error={errors.requestorAddress} />
                 {!own && (
                   <>
+=======
+                {own ? (
+                  <WalletAutofillCard />
+                ) : (
+                  <>
+                    <TextField label="Requestor name" value={values.requestorName || ""} onChange={(v) => setField("requestorName", v)} error={errors.requestorName} />
+                    <TextField label="Requestor address" value={values.requestorAddress || ""} onChange={(v) => setField("requestorAddress", v)} error={errors.requestorAddress} />
+>>>>>>> 7d23a659b9e937f219061e9012e1170b806c82d0
                     <UploadField label="Authorization letter" done={files.authLetter} uploading={uploading === "authLetter"} onUpload={() => handleUpload("authLetter", "Authorization-letter")} />
                     <UploadField label="Valid ID" done={files.validId} uploading={uploading === "validId"} onUpload={() => handleUpload("validId", "Valid-ID")} />
                   </>
