@@ -1,7 +1,7 @@
 import {
   Home, FileText, IdCard, Briefcase, Lightbulb, Construction, Trash2,
   Droplets, PawPrint, Flag, Phone, ShieldAlert, Flame, HeartPulse,
-  TriangleAlert, Users,
+  TriangleAlert, Users, Baby, HeartHandshake, ScrollText,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
@@ -22,4 +22,7 @@ export const ICONS: Record<string, LucideIcon> = {
   medical: HeartPulse,
   disaster: TriangleAlert,
   barangay: Users,
+  baby: Baby,
+  "heart-handshake": HeartHandshake,
+  "scroll-text": ScrollText,
 }
