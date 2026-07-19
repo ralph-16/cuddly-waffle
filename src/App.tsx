@@ -13,6 +13,7 @@ import Profile from "@/pages/Profile"
 import RequestFlow from "@/pages/RequestFlow"
 import RequestConfirm from "@/pages/RequestConfirm"
 import RptFlow from "@/pages/RptFlow"
+import CivilRegistryFlow from "@/pages/CivilRegistryFlow"
 import Report from "@/pages/Report"
 import Hotlines from "@/pages/Hotlines"
 import Assistant from "@/pages/Assistant"
@@ -37,6 +38,7 @@ export default function App() {
             <Route path="/request/:slug" element={<RequestFlow />} />
             <Route path="/request/:slug/confirm" element={<RequestConfirm />} />
             <Route path="/rpt" element={<RptFlow />} />
+            <Route path="/lcr" element={<CivilRegistryFlow />} />
             <Route path="/report" element={<Report />} />
             <Route path="/hotlines" element={<Hotlines />} />
             <Route path="/assistant" element={<Assistant />} />

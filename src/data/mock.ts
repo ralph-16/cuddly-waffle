@@ -40,18 +40,11 @@ export const requestTypes: RequestTypeConfig[] = [
     description: "Birth, marriage, or death certificate",
     icon: "file-text",
     trackPrefix: "LCR",
-    flowType: "standard",
+    // Has its own dedicated multi-certificate flow (see CivilRegistryFlow) - routed as "/lcr", same pattern as RPT.
+    flowType: "cart",
     identityRequirements: ["Valid government ID"],
-    attachmentRequirements: [
-      { id: "authLetter", label: "Authorization letter", helpText: "Only needed if you're requesting on behalf of someone else", required: false },
-    ],
-    fields: [
-      { id: "certType", label: "Certificate type", type: "select", options: ["Birth certificate", "Marriage certificate", "Death certificate"], required: true },
-      { id: "nameOnRecord", label: "Full name on record", type: "text", placeholder: "As written on the civil registry", required: true },
-      { id: "eventDate", label: "Date of event", type: "date", required: true },
-      { id: "purpose", label: "Purpose", type: "select", options: ["Employment", "Passport application", "School requirement", "Marriage requirement"], required: true },
-      { id: "copies", label: "Number of copies", type: "number", required: true },
-    ],
+    attachmentRequirements: [],
+    fields: [],
   },
   {
     slug: "cedula",
@@ -193,6 +186,28 @@ export const reportCategories: ReportCategory[] = [
   { id: "r5", label: "Stray or injured animal", icon: "paw-print" },
   { id: "r6", label: "Other concern", icon: "flag" },
 ]
+
+/** Certificate types offered by the Civil Registry service, and their flat mock fee. */
+export interface CivilRegistryCertType {
+  id: "birth" | "marriage" | "death"
+  title: string
+  description: string
+  icon: string
+  fee: number
+}
+
+export const civilRegistryCertTypes: CivilRegistryCertType[] = [
+  { id: "birth", title: "Birth Certificate", description: "Official record of birth.", icon: "baby", fee: 155 },
+  { id: "marriage", title: "Marriage Certificate", description: "Official record of marriage.", icon: "heart-handshake", fee: 155 },
+  { id: "death", title: "Death Certificate", description: "Official record of death.", icon: "scroll-text", fee: 155 },
+]
+
+/** The signed-in citizen's own verified info, reused to auto-fill requestor fields from the Identity Wallet. */
+export const walletProfile = {
+  fullName: "Juan Dela Cruz",
+  address: "142 Kalayaan St., Brgy. Sto. Rosario, Malolos, Bulacan",
+  contactNumber: "0917 123 4567",
+}
 
 /** Deterministic mock property lookup so any TDN typed in the demo returns a plausible record. */
 export interface PropertyRecord {
