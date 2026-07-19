@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 41 47% 93%;
+    --foreground: 22 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 22 15% 15%;
+
+    --primary: 2 47% 29%;
+    --primary-foreground: 41 47% 96%;
+
+    --secondary: 40 46% 86%;
+    --secondary-foreground: 22 15% 15%;
+
+    --muted: 40 46% 86%;
+    --muted-foreground: 31 13% 37%;
+
+    --accent: 11 40% 92%;
+    --accent-foreground: 2 47% 29%;
+
+    --destructive: 16 62% 44%;
+    --destructive-foreground: 41 47% 96%;
+
+    --border: 41 42% 78%;
+    --input: 41 42% 78%;
+    --ring: 2 47% 29%;
+
+    --gold: 38 65% 46%;
+    --gold-foreground: 36 71% 25%;
+
+    --sage: 127 26% 33%;
+    --sage-foreground: 127 30% 17%;
+
+    --azure: 205 48% 35%;
+    --azure-foreground: 203 53% 19%;
+
+    --adobe: 16 62% 44%;
+    --adobe-foreground: 16 71% 25%;
+
+    --radius: 0.9rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, .font-display {
+    font-family: "Fraunces", serif;
+  }
+  code, .tabular {
+    font-family: "IBM Plex Mono", monospace;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* Signature claim-stub perforation notches */
+.stub-notch::before,
+.stub-notch::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: hsl(var(--background));
+  border-radius: 50%;
+  left: -9px;
+  border: 1px solid hsl(var(--border));
+}
+.stub-notch::before { top: -9px; }
+.stub-notch::after { bottom: -9px; }
