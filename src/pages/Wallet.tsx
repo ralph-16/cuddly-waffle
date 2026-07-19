@@ -21,8 +21,9 @@ import type { LucideIcon } from "lucide-react"
 import { useAppData } from "@/context/useAppData"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { requestTypes, ID_CATEGORIES, getValidId } from "@/data/mock"
+import { requestTypes, ID_CATEGORIES, getValidId, issuedDocuments } from "@/data/mock"
 import { ICONS } from "@/lib/icon-map"
+import { IssuedDocCard } from "@/components/shared/IssuedDocCard"
 import type { WalletDoc } from "@/types"
 
 /** Presentation metadata for each wallet category. Purely visual/informational - not part of the data model. */
@@ -259,6 +260,20 @@ export default function Wallet() {
             />
           ))}
         </div>
+
+        {issuedDocuments.length > 0 && (
+          <section className="mb-5">
+            <div className="mb-1 text-[13px] font-bold uppercase tracking-wide text-muted-foreground">
+              Issued documents
+            </div>
+            <p className="mb-2.5 text-[11.5px] text-muted-foreground">
+              Government-issued records from your completed transactions.
+            </p>
+            <div className="flex flex-col gap-3">
+              {issuedDocuments.map((document) => <IssuedDocCard key={document.id} doc={document} />)}
+            </div>
+          </section>
+        )}
 
         {idRequestTypes.length > 0 && (
           <>

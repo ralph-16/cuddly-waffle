@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { Eye, Printer, Paperclip } from "lucide-react"
+import { Download, Eye, Printer, Paperclip, ReceiptText } from "lucide-react"
 import { Header } from "@/components/layout/Header"
 import { Timeline } from "@/components/shared/Timeline"
 import { ApprovalStamp } from "@/components/shared/ApprovalStamp"
@@ -42,14 +42,28 @@ export default function ApplicationDetail() {
           <>
             <ApprovalStamp />
             <p className="mb-3 text-center text-[12px] text-muted-foreground">Your document is ready. View it now or claim a printed copy.</p>
-            <div className="flex gap-2.5">
-              <Button variant="ghost" className="flex-1" onClick={() => showToast("Digital copy preview not available in this prototype")}>
-                <Eye className="h-4 w-4" /> View digital
-              </Button>
-              <Button variant="ghost" className="flex-1" onClick={() => showToast("Claim slip: bring a valid ID to City Hall, Window 2")}>
-                <Printer className="h-4 w-4" /> Claim printed
-              </Button>
-            </div>
+            {app.service === "Cedula" ? (
+              <div className="flex flex-col gap-2.5">
+                <Button variant="ghost" className="w-full" onClick={() => showToast("Official receipt preview not available in this prototype")}>
+                  <ReceiptText data-icon="inline-start" /> View Official Receipt
+                </Button>
+                <Button variant="ghost" className="w-full" onClick={() => showToast("Cedula preview not available in this prototype")}>
+                  <Eye data-icon="inline-start" /> View Cedula
+                </Button>
+                <Button className="w-full" onClick={() => showToast("Cedula PDF download simulated for this prototype")}>
+                  <Download data-icon="inline-start" /> Download Cedula (PDF)
+                </Button>
+              </div>
+            ) : (
+              <div className="flex gap-2.5">
+                <Button variant="ghost" className="flex-1" onClick={() => showToast("Digital copy preview not available in this prototype")}>
+                  <Eye data-icon="inline-start" /> View digital
+                </Button>
+                <Button variant="ghost" className="flex-1" onClick={() => showToast("Claim slip: bring a valid ID to City Hall, Window 2")}>
+                  <Printer data-icon="inline-start" /> Claim printed
+                </Button>
+              </div>
+            )}
           </>
         )}
         {app.status === "payment" && (

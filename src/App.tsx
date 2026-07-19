@@ -15,6 +15,7 @@ import RequestConfirm from "@/pages/RequestConfirm"
 import RptFlow from "@/pages/RptFlow"
 import CivilRegistryFlow from "@/pages/CivilRegistryFlow"
 import BusinessPermitFlow from "@/pages/BusinessPermitFlow"
+import CedulaFlow from "@/pages/CedulaFlow"
 import Report from "@/pages/Report"
 import Hotlines from "@/pages/Hotlines"
 import Assistant from "@/pages/Assistant"
@@ -41,6 +42,7 @@ export default function App() {
             <Route path="/rpt" element={<RptFlow />} />
             <Route path="/lcr" element={<CivilRegistryFlow />} />
             <Route path="/business-permit" element={<BusinessPermitFlow />} />
+            <Route path="/cedula" element={<CedulaFlow />} />
             <Route path="/report" element={<Report />} />
             <Route path="/hotlines" element={<Hotlines />} />
             <Route path="/assistant" element={<Assistant />} />

@@ -3,9 +3,9 @@ import type { DocStatus } from "@/types"
 
 const LABELS: Record<DocStatus, string> = {
   submitted: "Submitted",
-  review: "Under review",
-  payment: "For payment",
-  released: "Released",
+  review: "Under Review",
+  payment: "Payment Due",
+  released: "Completed",
 }
 
 export function StatusBadge({ status }: { status: DocStatus }) {

@@ -53,17 +53,10 @@ export const requestTypes: RequestTypeConfig[] = [
     description: "Community tax certificate",
     icon: "id-card",
     trackPrefix: "CTC",
-    flowType: "standard",
+    flowType: "cart",
     identityRequirements: ["Valid government ID"],
-    attachmentRequirements: [
-      { id: "proofIncome", label: "Proof of income or employment", helpText: "Optional - helps confirm your tax bracket", required: false },
-    ],
-    fields: [
-      { id: "fullName", label: "Full name", type: "text", placeholder: "Full legal name", required: true },
-      { id: "occupation", label: "Occupation or business", type: "text", placeholder: "e.g. Employed, Self-employed", required: true },
-      { id: "income", label: "Gross annual income", type: "number", placeholder: "In pesos", required: true },
-      { id: "address", label: "Current address", type: "text", placeholder: "Unit / street / barangay", required: true },
-    ],
+    attachmentRequirements: [],
+    fields: [],
   },
   {
     slug: "business-permit",
@@ -100,9 +93,9 @@ export const initialApplications: Application[] = [
     submitted: "Jul 12, 2026",
     stages: [
       { label: "Submitted", done: true, note: "Received online", date: "Jul 12, 2026" },
-      { label: "Under review", done: true, note: "Civil registry is verifying the record", date: "Jul 13, 2026" },
-      { label: "For payment", done: false },
-      { label: "Approved - ready for release", done: false },
+      { label: "Under Review", done: true, note: "Civil registry is verifying the record", date: "Jul 13, 2026" },
+      { label: "Payment Due", done: false },
+      { label: "Completed", done: false },
     ],
   },
   {
@@ -114,9 +107,9 @@ export const initialApplications: Application[] = [
     submitted: "Jul 9, 2026",
     stages: [
       { label: "Submitted", done: true, note: "Received online", date: "Jul 9, 2026" },
-      { label: "Under review", done: true, note: "Documents verified", date: "Jul 10, 2026" },
-      { label: "For payment", done: true, note: "Assessed fee - PHP 1,850.00", date: "Jul 11, 2026" },
-      { label: "Approved - ready for release", done: false },
+      { label: "Under Review", done: true, note: "Documents verified", date: "Jul 10, 2026" },
+      { label: "Payment Due", done: true, note: "Assessed fee - PHP 1,850.00", date: "Jul 11, 2026" },
+      { label: "Completed", done: false },
     ],
   },
   {
@@ -128,9 +121,9 @@ export const initialApplications: Application[] = [
     submitted: "Jul 2, 2026",
     stages: [
       { label: "Submitted", done: true, note: "Received online", date: "Jul 2, 2026" },
-      { label: "Under review", done: true, note: "Details verified", date: "Jul 3, 2026" },
-      { label: "For payment", done: true, note: "Paid - PHP 120.00", date: "Jul 3, 2026" },
-      { label: "Approved - ready for release", done: true, note: "Released at City Hall Window 2", date: "Jul 4, 2026" },
+      { label: "Under Review", done: true, note: "Details verified", date: "Jul 3, 2026" },
+      { label: "Payment Due", done: true, note: "Paid - PHP 120.00", date: "Jul 3, 2026" },
+      { label: "Completed", done: true, note: "Issued at City Hall Window 2", date: "Jul 4, 2026" },
     ],
   },
   {
@@ -141,10 +134,10 @@ export const initialApplications: Application[] = [
     track: "RPT-2026-0602",
     submitted: "Jul 16, 2026",
     stages: [
-      { label: "Proof of payment submitted", done: true, note: "GCash reference attached", date: "Jul 16, 2026" },
-      { label: "Verifying payment", done: false, note: "City Treasurer's Office is confirming your payment" },
-      { label: "Official receipt generated", done: false },
-      { label: "Approved - ready for release", done: false },
+      { label: "Submitted", done: true, note: "Payment proof attached", date: "Jul 16, 2026" },
+      { label: "Under Review", done: false, note: "City Treasurer's Office is confirming your payment" },
+      { label: "Payment Due", done: false },
+      { label: "Completed", done: false },
     ],
   },
 ]
@@ -208,6 +201,9 @@ export const walletProfile = {
   fullName: "Juan Dela Cruz",
   address: "142 Kalayaan St., Brgy. Sto. Rosario, Malolos, Bulacan",
   contactNumber: "0917 123 4567",
+  birthDate: "1992-06-12",
+  birthPlace: "Malolos, Bulacan",
+  citizenship: "Filipino",
 }
 
 /** Deterministic mock property lookup so any TDN typed in the demo returns a plausible record. */

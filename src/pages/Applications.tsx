@@ -4,6 +4,7 @@ import { ClipboardList, FileStack } from "lucide-react"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { ClaimStub } from "@/components/shared/ClaimStub"
 import { IssuedDocCard } from "@/components/shared/IssuedDocCard"
+import { StatusLegend } from "@/components/shared/StatusLegend"
 import { cn } from "@/lib/utils"
 import { useAppData } from "@/context/useAppData"
 import { issuedDocuments } from "@/data/mock"
@@ -30,6 +31,8 @@ export default function Applications() {
       <div className="flex-1 overflow-y-auto px-5 pb-2 pt-4">
         <h1 className="font-display text-[22px] font-semibold">Applications</h1>
         <p className="mt-0.5 text-[13px] text-muted-foreground">Track requests in progress and view what's been issued.</p>
+
+        <StatusLegend />
 
         <Tabs defaultValue="applications" className="mt-4">
           <TabsList className="mb-4 grid w-full grid-cols-2">

@@ -5,7 +5,6 @@ import {
   Check,
   Upload,
   RotateCw,
-  ReceiptText,
 } from "lucide-react"
 import { Header } from "@/components/layout/Header"
 import { Progress } from "@/components/ui/progress"
@@ -18,6 +17,7 @@ import { Timeline } from "@/components/shared/Timeline"
 import { ClaimStub } from "@/components/shared/ClaimStub"
 import { WalletBanner } from "@/components/shared/WalletBanner"
 import { PAYMENT_METHODS, PaymentMethodPicker } from "@/components/shared/PaymentMethodPicker"
+import { PaymentStep } from "@/components/shared/PaymentStep"
 import { ReviewRow } from "@/components/shared/ReviewRow"
 import { useAppData } from "@/context/useAppData"
 import { civilRegistryCertTypes, walletProfile, type CivilRegistryCertType } from "@/data/mock"
@@ -595,27 +595,19 @@ export default function CivilRegistryFlow() {
               <ReviewRow label="Copies" value={String(copies)} />
               <ReviewRow label="Estimated fee" value={peso(fee)} last />
             </div>
-
-            <p className="mb-2.5 mt-5 text-[13px] font-bold uppercase tracking-wide text-muted-foreground">Payment method</p>
-            <PaymentMethodPicker value={paymentMethod} onChange={setPaymentMethod} />
           </div>
         )}
 
         {step === 4 && (
-          <div className="space-y-4">
-            <div className="rounded-2xl border border-border bg-card p-4">
-              <ReviewRow label="Amount" value={peso(fee)} />
-              <ReviewRow label="Reference number" value={referenceNumber} last />
-            </div>
-            <div>
-              <p className="mb-2.5 text-[13px] font-bold uppercase tracking-wide text-muted-foreground">Payment method</p>
-              <PaymentMethodPicker value={paymentMethod} onChange={setPaymentMethod} />
-            </div>
-            <div className="flex items-start gap-2.5 rounded-2xl bg-secondary p-3.5 text-[12px] text-muted-foreground">
-              <ReceiptText className="h-4 w-4 shrink-0" strokeWidth={1.7} />
-              This is a mock payment for demo purposes - no real transaction will be made.
-            </div>
-          </div>
+          <PaymentStep
+            amount={peso(fee)}
+            amountLabel={`${certConfig?.title ?? "Civil registry"} · ${copies} ${copies === 1 ? "copy" : "copies"}`}
+            reviewRows={[
+              { label: "Reference number", value: referenceNumber, last: true },
+            ]}
+            paymentMethod={paymentMethod}
+            onPaymentChange={setPaymentMethod}
+          />
         )}
       </div>
 

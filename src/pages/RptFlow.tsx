@@ -1,13 +1,14 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Search, Check, RotateCw, ReceiptText, Landmark } from "lucide-react"
+import { Search, Check, RotateCw, Landmark } from "lucide-react"
 import { Header } from "@/components/layout/Header"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Progress } from "@/components/ui/progress"
 import { ClaimStub } from "@/components/shared/ClaimStub"
-import { PAYMENT_METHODS, PaymentMethodPicker } from "@/components/shared/PaymentMethodPicker"
+import { PAYMENT_METHODS } from "@/components/shared/PaymentMethodPicker"
+import { PaymentStep } from "@/components/shared/PaymentStep"
 import { ReviewRow } from "@/components/shared/ReviewRow"
 import { useAppData } from "@/context/useAppData"
 import { lookupProperty, type PropertyRecord } from "@/data/mock"
@@ -173,20 +174,15 @@ export default function RptFlow() {
         )}
 
         {step === 3 && (
-          <div className="space-y-4">
-            <div className="rounded-2xl border border-border bg-card p-4">
-              <ReviewRow label="Amount" value={peso(total)} />
-              <ReviewRow label="Reference number" value={referenceNumber} last />
-            </div>
-            <div>
-              <p className="mb-2.5 text-[13px] font-bold uppercase tracking-wide text-muted-foreground">Payment method</p>
-              <PaymentMethodPicker value={paymentMethod} onChange={setPaymentMethod} />
-            </div>
-            <div className="flex items-start gap-2.5 rounded-2xl bg-secondary p-3.5 text-[12px] text-muted-foreground">
-              <ReceiptText className="h-4 w-4 shrink-0" strokeWidth={1.7} />
-              This is a mock payment for demo purposes - your official receipt will be generated once staff verifies it.
-            </div>
-          </div>
+          <PaymentStep
+            amount={peso(total)}
+            amountLabel={`Real property tax · Tax declaration ${property?.tdn ?? ""}`}
+            reviewRows={[
+              { label: "Reference number", value: referenceNumber, last: true },
+            ]}
+            paymentMethod={paymentMethod}
+            onPaymentChange={setPaymentMethod}
+          />
         )}
       </div>
 
