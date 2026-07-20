@@ -10,6 +10,7 @@ import Wallet from "@/pages/Wallet"
 import Applications from "@/pages/Applications"
 import ApplicationDetail from "@/pages/ApplicationDetail"
 import Profile from "@/pages/Profile"
+import News from "@/pages/News"
 import RequestFlow from "@/pages/RequestFlow"
 import RequestConfirm from "@/pages/RequestConfirm"
 import RptFlow from "@/pages/RptFlow"
@@ -42,6 +43,7 @@ export default function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/wallet" element={<Wallet />} />
               <Route path="/applications" element={<Applications />} />
+              <Route path="/news" element={<News />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
 

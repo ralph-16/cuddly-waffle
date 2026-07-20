@@ -1,14 +1,15 @@
 import { NavLink } from "react-router-dom"
-import { Home, Wallet, ClipboardList, User } from "lucide-react"
+import { Home, Wallet, ClipboardList, User, Newspaper } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const items = [
   { to: "/home", label: "Home", icon: Home },
   { to: "/wallet", label: "Wallet", icon: Wallet },
   { to: "/applications", label: "Applications", icon: ClipboardList },
+  { to: "/news", label: "News", icon: Newspaper },
   { to: "/profile", label: "Profile", icon: User },
 ]
-
+ 
 export function BottomNav() {
   return (
     <nav className="flex flex-shrink-0 border-t border-border bg-card px-1 pb-[max(env(safe-area-inset-bottom),8px)] pt-1.5">

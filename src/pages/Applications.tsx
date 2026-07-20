@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 import { useAppData } from "@/context/useAppData"
 import { issuedDocuments } from "@/data/mock"
 
-const FILTERS = [
+const FILTERS = [ 
   { id: "all", label: "All" },
   { id: "progress", label: "In progress" },
   { id: "done", label: "Completed" },
