@@ -20,6 +20,15 @@ import Report from "@/pages/Report"
 import Hotlines from "@/pages/Hotlines"
 import Assistant from "@/pages/Assistant"
 
+/*
+UI text/hints — a lot of the placeholder/hint text looks AI-generated and needs a human pass (rewrite for clarity/tone)
+Status meanings — need a place in the app (tooltip? legend? info modal?) that explains what each status means, and whether all current statuses are even still needed
+Spacing — component spacing/margins need cleanup across the app
+Flow review — walk through the actual user process/flow end-to-end and check it makes sense
+Home/Dashboard tab — needs improvement since it hasn't gotten attention; consider removing the last 2 items (sections/cards?) currently there
+Add a News section — similar to Malolos City's "MaloloNews" on their website, so the dashboard doesn't feel empty
+*/
+
 export default function App() {
   return (
     <AppDataProvider>
