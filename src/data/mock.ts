@@ -240,7 +240,7 @@ export const news = {
     fullDetail: "The Malolos City government officially broke ground on the long-awaited renovation of the public market this week, aiming to modernize vendor stalls, improve drainage and sanitation systems, and enhance overall customer experience. City officials stated that the project, funded through the local development budget, is expected to be completed within 18 months. Vendors will be temporarily relocated to a nearby holding area to ensure business continuity during construction. The mayor emphasized that the renovation is part of a broader initiative to boost local commerce and improve the quality of life for residents and traders alike.",
     date: "2026-07-15T09:30:00",
     views: 1284,
-    image: "src/data/mockNewsImage.jpg"
+    image: "/mockNewsImage.jpg"
   },
   "barasoain-church-independence-day": {
     headline: "Barasoain Church Hosts Special Independence Day Commemoration",
@@ -248,7 +248,7 @@ export const news = {
     fullDetail: "The historic Barasoain Church, known as the 'Cradle of Democracy in the East,' hosted a special commemorative program this week to honor its pivotal role in Philippine history. Local officials, historians, and students gathered for a series of lectures, reenactments, and cultural performances highlighting the church's significance as the site of the First Philippine Congress. The event drew hundreds of attendees, including tourists from neighboring provinces. Organizers hope the annual tradition will continue to educate younger generations about the nation's fight for independence and the historical importance of Malolos as the former capital of the Philippine Republic.",
     date: "2026-06-12T14:00:00",
     views: 3521,
-    image: "src/data/mockNewsImage.jpg"
+    image: "/mockNewsImage.jpg"
   },
   "malolos-flooding-heavy-rains": {
     headline: "Flooding Concerns Rise in Malolos Barangays Amid Heavy Rains",
@@ -256,7 +256,7 @@ export const news = {
     fullDetail: "Continuous heavy rainfall over the past few days has caused flooding in several low-lying barangays across Malolos City, prompting the local disaster risk reduction and management office to place emergency teams on standby. Residents in affected areas have reported ankle to knee-deep water in some streets, disrupting daily activities and transportation. City officials have opened evacuation centers as a precautionary measure and are urging residents near riverbanks to remain vigilant. Local authorities are also coordinating with the provincial government to assess drainage infrastructure improvements to mitigate future flooding incidents in the city.",
     date: "2026-07-20T07:45:00",
     views: 8940,
-    image: "src/data/mockNewsImage.jpg"
+    image: "/mockNewsImage.jpg"
   },
   "malolos-traffic-management-scheme": {
     headline: "Malolos City Council Approves New Traffic Management Scheme",
@@ -264,7 +264,7 @@ export const news = {
     fullDetail: "The Malolos City Council has approved a new traffic management scheme designed to address worsening congestion in the city center, particularly along major thoroughfares near the public market and commercial districts. The new scheme includes designated one-way streets, updated loading and unloading zones, and stricter enforcement against illegal parking. Traffic enforcers will undergo additional training to implement the changes effectively starting next month. City officials expressed optimism that the measures will significantly reduce travel time for commuters and improve road safety, while also inviting public feedback during the initial implementation phase.",
     date: "2026-07-19T16:20:00",
     views: 2107,
-    image: "src/data/mockNewsImage.jpg"
+    image: "/mockNewsImage.jpg"
   },
   "bulacan-university-science-award": {
     headline: "Local Bulacan University Students Win National Science Competition",
@@ -272,6 +272,6 @@ export const news = {
     fullDetail: "A team of students from a university based in Malolos City brought pride to the region after winning top honors at a national science and innovation competition held in Manila. The team developed an innovative water filtration system using locally sourced materials, impressing judges with its practicality and environmental impact. School officials praised the students' dedication, noting months of research and prototype testing leading up to the competition. The achievement has inspired local educational institutions to further invest in science and technology programs, with city officials hinting at potential support for the students to pursue further development of their project.",
     date: "2026-05-20T11:00:00",
     views: 4632,
-    image: "src/data/mockNewsImage.jpg"
+    image: "/mockNewsImage.jpg"
   }
 }
